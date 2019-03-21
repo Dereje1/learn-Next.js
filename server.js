@@ -1,5 +1,6 @@
 const express = require('express');
 const nextjs = require('next');
+const utility = require('./utility');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = nextjs({ dev });
@@ -9,14 +10,18 @@ app.prepare().then(() => {
   const server = express();
   server.use(express.json());
 
-  // eslint-disable-next-line no-unused-vars
   server.post('/api/guestbook', (req, res) => {
     // A POSTED REQUEST HERE
+    const { name, message } = req.body;
+    if (name && message) {
+      utility.setMessages(req.body);
+      res.json({ status: 'success' });
+    } else res.json({ status: 'error' });
   });
 
   server.get('/api/guestbook', (req, res) => {
     res.json({
-      posts: [],
+      posts: utility.getMessages(),
     });
   });
 

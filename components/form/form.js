@@ -15,7 +15,19 @@ class Form extends React.Component {
     this.setState({ [e.target.className]: e.target.value });
   }
 
-  handleSubmit = () => console.log('Ready to submit');
+  handleSubmit = () => {
+    const { name, message } = this.state;
+    fetch('/api/guestbook', {
+      method: 'post',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, message }),
+    }).then((res) => {
+      console.log(res);
+    });
+  };
 
   render() {
     const { name, message } = this.state;
