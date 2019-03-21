@@ -28,7 +28,7 @@ class Guestbook extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Nav />
+        <Nav currentPath="guestbook" />
         {this.loadMessages()}
       </React.Fragment>
     );

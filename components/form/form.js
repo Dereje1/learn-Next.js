@@ -33,19 +33,15 @@ class Form extends React.Component {
     const { name, message } = this.state;
     return (
       <div className="formholder">
-        <div className="nameHolder">
-          <label htmlFor="name">
-            <textarea value={name} className="name" onChange={this.handleChange} />
-            Name
-          </label>
-        </div>
-        <div className="messageHolder">
-          <label htmlFor="message">
-            <textarea value={message} className="message" onChange={this.handleChange} />
-             Message
-          </label>
-        </div>
-        <button type="submit" onClick={this.handleSubmit}>Submit</button>
+        <label htmlFor="name" className="nameHolder">
+          <span className="namelabel">Name</span>
+          <textarea value={name} className="name" onChange={this.handleChange} />
+        </label>
+        <label htmlFor="message" className="messageHolder">
+          <span className="messagelabel">Message</span>
+          <textarea value={message} className="message" onChange={this.handleChange} />
+        </label>
+        <button className="enter" type="submit" onClick={this.handleSubmit}>Submit</button>
       </div>
     );
   }

@@ -13,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Nav />
+        <Nav currentPath="home" />
         <Form />
       </React.Fragment>
     );

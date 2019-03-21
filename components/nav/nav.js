@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import './nav.scss';
 
-const Nav = () => (
+const Nav = ({ currentPath }) => (
   <div className="nav">
     <Link href="/">
-      <button type="button" className="navbuttons">Home</button>
+      <button type="button" className={currentPath === 'home' ? 'navbuttons active' : 'navbuttons'}>Home</button>
     </Link>
     <Link href="/guestbook">
-      <button type="button" className="navbuttons">Guest Book</button>
+      <button type="button" className={currentPath === 'guestbook' ? 'navbuttons active' : 'navbuttons'}>Guest Book</button>
     </Link>
   </div>
 );

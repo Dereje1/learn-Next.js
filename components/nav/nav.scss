@@ -6,12 +6,20 @@
     height: 8vh;
     display: flex;
     justify-content: flex-start;
-    background: rgb(206, 168, 98);
+    background: #2e151b;
     .navbuttons{
         height: 100%;
         width:20vw;
-        background-color: rgb(206, 168, 98);
-        font-size: 2em;
+        background-color: #2e151b;
+        color: rgb(179, 179, 179);
+        font-size: 1.2em;
+        border: 0px;
         cursor: pointer;
+        &.active{
+            background: #da7b93;
+            color:#302d2d;
+        }
     }
 }
+
+button:focus {outline:0;}
