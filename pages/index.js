@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../components/nav/nav';
+import Form from '../components/form/form';
 import './styles.scss';
 
 class App extends React.Component {
@@ -13,7 +14,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Nav />
-        <h1>Form Here</h1>
+        <Form />
       </React.Fragment>
     );
   }
