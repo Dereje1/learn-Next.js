@@ -23,7 +23,7 @@ class Form extends React.Component {
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, message }),
+      body: JSON.stringify({ name, message, date: Date.now() }),
     }).then((res) => {
       console.log(res);
     });

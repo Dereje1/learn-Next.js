@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../components/nav/nav';
+import Feed from '../components/feed/feed';
 
 class Guestbook extends React.Component {
 
@@ -14,22 +15,12 @@ class Guestbook extends React.Component {
       .then(data => this.setState({ messages: data.posts }));
   }
 
-  loadMessages = () => {
-    const { messages } = this.state;
-    if (!messages.length) return null;
-    return messages.map(m => (
-      <div key={m.name}>
-        <span>{m.name}</span>
-        <span>{m.message}</span>
-      </div>
-    ));
-  }
-
   render() {
+    const { messages } = this.state;
     return (
       <React.Fragment>
         <Nav currentPath="guestbook" />
-        {this.loadMessages()}
+        <Feed messages={messages} />
       </React.Fragment>
     );
   }
