@@ -13,7 +13,7 @@ class Form extends React.Component {
   }
 
   handleChange = (e) => {
-    this.setState({ [e.target.className]: e.target.value.trim() });
+    this.setState({ [e.target.className]: e.target.value });
   }
 
   handleSubmit = async () => {
@@ -25,7 +25,7 @@ class Form extends React.Component {
           Accept: 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, message, date: Date.now() }),
+        body: JSON.stringify({ name: name.trim(), message: message.trim(), date: Date.now() }),
       });
       const submitResult = await submitted.json();
       this.setState({ submitStatus: submitResult.status });
@@ -42,7 +42,7 @@ class Form extends React.Component {
         this.setState({
           submitStatus: null,
         });
-      }, 2000);
+      }, 1500);
     }
   };
 

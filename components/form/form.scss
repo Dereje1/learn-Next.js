@@ -19,7 +19,7 @@
             font-size: 2em;
         }
         .name{
-            width:45%;
+            width:55%;
             height: 60%;
             resize: none;
             margin-left: 5%;
@@ -69,6 +69,34 @@
     }
     &.error{
         background: red;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .formholder{
+        .nameHolder{
+            flex-direction: column;
+            .namelabel{
+                font-size: 1.2em;
+            }
+            .name{
+                font-size: 18px;
+                height: 40%;
+                width: 75%;
+            }
+        }
+        .messageHolder{
+            .messagelabel{
+                font-size: 1em;
+            }
+            .message{
+                font-size: 18px;
+            }
+        }
+        .enter{
+            width:75%;
+        }
     }
 }
 
