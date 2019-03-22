@@ -1,28 +1,24 @@
 import React from 'react';
+import fetch from 'isomorphic-unfetch';
+import PropTypes from 'prop-types';
 import Nav from '../components/nav/nav';
 import Feed from '../components/feed/feed';
 import '../components/feed/feed.scss';
 
 class Guestbook extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { messages: [] };
-  }
-
-  componentDidMount() {
-    /* fetch messages only once on mount */
-    fetch('/api/guestbook')
-      .then(res => res.json())
-      .then(data => this.setState({ messages: data.posts }));
+  static async getInitialProps() {
+    const res = await fetch('http://localhost:3000/api/guestbook');
+    const data = await res.json();
+    return { data };
   }
 
   render() {
-    const { messages } = this.state;
+    const { data } = this.props;
     return (
       <React.Fragment>
         <Nav currentPath="guestbook" />
-        <Feed messages={messages} />
+        <Feed messages={data.posts} />
       </React.Fragment>
     );
   }
@@ -30,3 +26,11 @@ class Guestbook extends React.Component {
 }
 
 export default Guestbook;
+
+Guestbook.defaultProps = {
+  data: null,
+};
+
+Guestbook.propTypes = {
+  data: PropTypes.shape(PropTypes.shape),
+};
