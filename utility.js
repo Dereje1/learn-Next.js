@@ -1,3 +1,4 @@
+/* simple utility module to store messages */
 module.exports = {
   messages: [],
   getMessages() {

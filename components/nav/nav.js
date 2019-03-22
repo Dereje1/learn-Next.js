@@ -1,4 +1,6 @@
+/* static Nav component present for both routes */
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import './nav.scss';
 
 const Nav = ({ currentPath }) => (
@@ -13,3 +15,7 @@ const Nav = ({ currentPath }) => (
 );
 
 export default Nav;
+
+Nav.propTypes = {
+  currentPath: PropTypes.string.isRequired,
+};

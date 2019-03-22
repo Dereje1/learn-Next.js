@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from '../components/nav/nav';
 import Feed from '../components/feed/feed';
+import '../components/feed/feed.scss';
 
 class Guestbook extends React.Component {
 
@@ -10,6 +11,7 @@ class Guestbook extends React.Component {
   }
 
   componentDidMount() {
+    /* fetch messages only once on mount */
     fetch('/api/guestbook')
       .then(res => res.json())
       .then(data => this.setState({ messages: data.posts }));

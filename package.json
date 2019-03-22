@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "standard",
+    "lint": "./node_modules/.bin/eslint ./",
     "dev": "NODE_ENV=development npm start",
     "build": "next build",
     "start": "node ./server"
@@ -25,6 +25,7 @@
     "express": "^4.16.4",
     "next": "^7.0.2",
     "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },

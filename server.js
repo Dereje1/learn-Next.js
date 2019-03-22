@@ -13,6 +13,7 @@ app.prepare().then(() => {
   server.post('/api/guestbook', (req, res) => {
     // A POSTED REQUEST HERE
     const { name, message } = req.body;
+    // both fields can not be empty before storing messages
     if (name && message) {
       utility.setMessages(req.body);
       res.json({ status: 'success' });

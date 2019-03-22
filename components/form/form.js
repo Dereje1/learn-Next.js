@@ -28,6 +28,10 @@ class Form extends React.Component {
         body: JSON.stringify({ name: name.trim(), message: message.trim(), date: Date.now() }),
       });
       const submitResult = await submitted.json();
+      /* status property of object returned  from
+      server will either have success / error
+      set status state briefly. If error, keep
+      contents of form */
       this.setState({ submitStatus: submitResult.status });
       setTimeout(() => {
         this.setState({
@@ -35,8 +39,10 @@ class Form extends React.Component {
           message: submitResult.status === 'success' ? '' : message,
           submitStatus: null,
         });
-      }, 2000);
+      }, 1500);
     } catch (error) {
+      /* on a network/ bad connection error force error message and do
+      not reset form */
       this.setState({ submitStatus: 'error' });
       setTimeout(() => {
         this.setState({
