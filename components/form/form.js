@@ -8,29 +8,47 @@ class Form extends React.Component {
     this.state = {
       name: '',
       message: '',
+      submitStatus: null,
     };
   }
 
   handleChange = (e) => {
-    this.setState({ [e.target.className]: e.target.value });
+    this.setState({ [e.target.className]: e.target.value.trim() });
   }
 
-  handleSubmit = () => {
+  handleSubmit = async () => {
     const { name, message } = this.state;
-    fetch('/api/guestbook', {
-      method: 'post',
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, message, date: Date.now() }),
-    }).then((res) => {
-      console.log(res);
-    });
+    try {
+      const submitted = await fetch('/api/guestbook', {
+        method: 'post',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, message, date: Date.now() }),
+      });
+      const submitResult = await submitted.json();
+      this.setState({ submitStatus: submitResult.status });
+      setTimeout(() => {
+        this.setState({
+          name: submitResult.status === 'success' ? '' : name,
+          message: submitResult.status === 'success' ? '' : message,
+          submitStatus: null,
+        });
+      }, 2000);
+    } catch (error) {
+      this.setState({ submitStatus: 'error' });
+      setTimeout(() => {
+        this.setState({
+          submitStatus: null,
+        });
+      }, 2000);
+    }
   };
 
   render() {
-    const { name, message } = this.state;
+    const { name, message, submitStatus } = this.state;
+    if (submitStatus) return <div className={`status ${submitStatus}`}>{submitStatus}</div>;
     return (
       <div className="formholder">
         <label htmlFor="name" className="nameHolder">

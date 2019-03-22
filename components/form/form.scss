@@ -55,4 +55,22 @@
     }
 }
 
+.status{
+    width: 300px;
+    height: 75px;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    &.success{
+        background: green;
+    }
+    &.error{
+        background: red;
+    }
+}
+
+
 button:focus {outline:0;}
