@@ -1,0 +1,41 @@
+{
+  "name": "nextjs-challenge-boilerplate",
+  "version": "1.0.0",
+  "description": "A basic boilerplate for nextjs challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint ./",
+    "dev": "NODE_ENV=development npm start",
+    "build": "next build",
+    "start": "node ./server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remedyhealth/nextjs-challenge-boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/remedyhealth/nextjs-challenge-boilerplate/issues"
+  },
+  "homepage": "https://github.com/remedyhealth/nextjs-challenge-boilerplate#readme",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "express": "^4.16.4",
+    "next": "^7.0.2",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "standard": "^12.0.1"
+  }
+}

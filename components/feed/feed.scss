@@ -1,0 +1,26 @@
+.messagelist{
+    width: 80%;
+    height: auto;
+    background: #376e6f;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &:hover{
+        box-shadow: 3px 3px 5px 0px #2e151b;
+    }
+    .sender{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 1.3em;
+        color: #dddcdc;
+        font-weight: bold;
+    }
+    .message{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 1em;
+        color: rgb(180, 180, 180);
+    }
+}
