@@ -5,7 +5,7 @@ Challenge: Create a new Github project with NextJS and React that meets the foll
 1. Starts with the command `npm i && npm run dev` <sup>1</sup> :heavy_check_mark:
 2. Shows a form with “name” and “message” when it runs at localhost:3000 :heavy_check_mark:
 3. When submitting form, runs a `POST` to `/api/guestbook` and resets with a success message (should show an error if things are missing). :heavy_check_mark:
-4. A link on the homepage takes you to `/guestbook` and shows all posts that have been submitted from the previous form. <sup>2</sup> :heavy_check_mark:
+4. A link on the homepage takes you to `/guestbook` and shows all posts that have been submitted from the previous form.<sup>2</sup> :heavy_check_mark:
   - A link on that page exists to go back to the homepage :heavy_check_mark:
   - You do not need to persist that data in any database, just keep it in memory. :heavy_check_mark:
 
