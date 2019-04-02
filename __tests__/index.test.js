@@ -1,12 +1,22 @@
 /* eslint-env jest */
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react';
-
 import App from '../pages/index';
+import Nav from '../components/nav/nav';
+import Form from '../components/form/form';
 
-describe('With Enzyme', () => {
-  it('App shows name field"', () => {
-    const app = mount(<App />);
-    expect(app.find('.namelabel').text()).toEqual('Name');
+
+describe('<App />', () => {
+  it('renders one <Nav /> component', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Nav)).toHaveLength(1);
+  });
+  it('<Nav /> has currentPath set to home', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Nav).props()).toHaveProperty('currentPath', 'home');
+  });
+  it('renders one <Form /> component', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Form)).toHaveLength(1);
   });
 });
