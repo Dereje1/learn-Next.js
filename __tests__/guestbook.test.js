@@ -10,7 +10,6 @@ describe('<Guestbook />', () => {
   it('renders one <Nav /> component', async () => {
     const props = await Guestbook.getInitialProps();
     const wrapper = shallow(<Guestbook {...props} />);
-    console.log(wrapper.debug());
     expect(wrapper.find(Nav)).toHaveLength(1);
   });
 
