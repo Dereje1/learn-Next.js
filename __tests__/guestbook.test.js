@@ -13,7 +13,7 @@ describe('<Guestbook />', () => {
     expect(wrapper.find(Nav)).toHaveLength(1);
   });
 
-  it('<Nav /> has currentPath set to home', async () => {
+  it('<Nav /> has currentPath set to guestbook', async () => {
     const props = await Guestbook.getInitialProps();
     const wrapper = shallow(<Guestbook {...props} />);
     expect(wrapper.find(Nav).props()).toHaveProperty('currentPath', 'guestbook');
